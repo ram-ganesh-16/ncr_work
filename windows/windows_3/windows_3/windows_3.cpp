@@ -29,7 +29,7 @@ void _tmain(int argc,LPCTSTR *argv[],TCHAR *env[])
 {
 	Dump_env_strings(env);
 	int tchar_size;
-	LPCTSTR env_var_string = L"%SystemRoot%";
+	LPCTSTR env_var_string = L"%USERNAME%";
 	TCHAR receive_string[MAX_PATH];
 	tchar_size=ExpandEnvironmentStrings(env_var_string,receive_string,MAX_PATH);
 	if (tchar_size == 0)

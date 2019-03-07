@@ -19,11 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{285D0FA3-084E-4576-B0B7-438152EBEB2C}</ProjectGuid>
+    <ProjectGuid>{769DA610-6CFF-4461-9A01-CCCE45337F81}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>process</RootNamespace>
+    <RootNamespace>repeated_Programs</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
-    <ProjectName>6,7,9_process</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -147,7 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="process.cpp" />
+    <ClCompile Include="Program13.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

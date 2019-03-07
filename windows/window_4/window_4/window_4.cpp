@@ -1,6 +1,6 @@
 /*Write a program to open an existing file with CreateFile and 
 use ReadFile to read the contents of file till EOF and print the contents to console.
-*/
+
 #include<stdio.h>
 #include<Windows.h>
 #include<stdlib.h>
@@ -27,10 +27,7 @@ int _tmain(int argc, TCHAR *argv[])
 	{
 		printf("File hasn't been created due to %d",GetLastError());
 	}
-	else
-	{
-		printf("Files %S is created", argv[1]);
-	}
+		_tprintf(TEXT("Files is created"), argv[1]);
 
 	DWORD no_of_bytes;
 	PVOID buffer[BUFFER_SIZE];
@@ -46,5 +43,51 @@ int _tmain(int argc, TCHAR *argv[])
 	}
 	CloseHandle(myfile);
 	printf("File contents are %s: %s\n", argv[1], buffer);
+	getchar();
+}*/
+#include<stdio.h>
+#include<Windows.h>
+#include<stdlib.h>
+#include<tchar.h>
+#define BUFFER_SIZE 100
+int _tmain()
+{
+	HANDLE myfile;
+	LPCWSTR filename=L"ganesh.txt";
+
+	myfile = CreateFile(filename, //lpfilename
+		GENERIC_READ,            //dwDesiredAccess
+		0,                       //dwShareMode
+		NULL,                    //lpSecurityAttributes
+		OPEN_EXISTING,           //dwCreationDisposition
+		FILE_ATTRIBUTE_NORMAL,   //dwFlagsAndAttributes
+		NULL);                   //hTemplateFile
+	if (myfile == INVALID_HANDLE_VALUE)
+	{
+		printf("File hasn't been created due to %d", GetLastError());
+		getchar();
+	}
+	else
+	{
+		printf("Files is created %lS\n", filename);
+	}
+	
+	
+
+	DWORD no_of_bytes;
+	PVOID buffer[BUFFER_SIZE];
+	ZeroMemory(buffer, BUFFER_SIZE);
+	BOOL value = ReadFile(myfile,   //hFile
+		buffer,                   //lpBuffer
+		BUFFER_SIZE,              //nNumberOfBytesToRead
+		&no_of_bytes,             //lpNumberOfBytesRead
+		NULL);                    //lpOverlapped
+	if (value&&no_of_bytes == 0)
+	{
+		printf("File hasn't been created due to %d", GetLastError());
+		getchar();
+	}
+	CloseHandle(myfile);
+	printf("File contents are %lS: %s\n", filename, buffer);
 	getchar();
 }
