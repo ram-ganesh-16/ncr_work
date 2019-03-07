@@ -1,39 +1,39 @@
 #include<stdio.h>
 
-void strcpy(char *s2, char *s1)
+void strcpy(char *str2, char *str1)
 {
-	while (*s1)
+	while (*str1)
 	{
-		*s2 = *s1;
-		*s2++;
-		*s1++;
+		*str2 = *str1;
+		*str2++;
+		*str1++;
 	}
-	*s2 = '\0';
+	*str2 = '\0';
 }
-void strcat(char *s1, char *s2)
+void strcat(char *str1, char *str2)
 {
-	while (*s1)//till end of main string
+	while (*str1)
 	{
-		*s1++;
+		*str1++;
 	}
-	while (*s2)
+	while (*str2)
 	{
-		*s1 = *s2;
-		*s2++;
-		*s1++;
+		*str1 = *str2;
+		*str2++;
+		*str1++;
 	}
-	*s1 = '\0';
+	*str1 = '\0';
+	*str2 = '\0';
 }
-int strcmp(char *s1, char *s2)
+int strcmp(char *str1, char *str2)
 {
 	char *a, *b;
-	a = s1, b = s2;
-	while (*s1++ == *s2++)
+	a = str1, b = str2;
+	while (*str1++ == *str2++)
 	{
-		if ((*s1) == '\0')
+		if ((*str1) == '\0')
 			return 0;
 	}
-	//*s1--; *s2--;
 	if ((*a - *b) > 0)
 		return 1;
 	else
@@ -59,30 +59,33 @@ void strrev(char *str)
 }
 int main()
 {
-	char s[50], s2[50];
-	int c, res;
-	printf("enter string\n");
-	//scanf_s("%s", s);//main string
-	gets_s(s);
-	printf("enter choice 1.strrev 2.strcpy 3.strcat 4.strcmp\n");
-	scanf_s("%d", &c);
-	switch (c)
+	char string1[50], string2[50];
+	int value, result;
+	printf("Enter the string i.e to been used for further expressions:\n");
+	gets_s(string1);
+	printf("Enter your choice\n1.strrev\n2.strcpy\n3.strcat\n4.strcmp\n");
+	scanf_s("%d", &value);
+	switch (value)
 	{
-	case 1:strrev(s); printf("%s ", s);
+	case 1:strrev(string1);
+		printf("%s ", string1);
 		break;
-	case 2:strcpy(s2, s); printf("%s ", s2);
+	case 2:strcpy(string2, string1);
+		printf("%s ", string2);
 		break;
-	case 3:printf("enter string2\n"); scanf_s("%s", s2);
-		strcat(s, s2); printf("%s", s);
+	case 3:printf("Enter the string2\n"); 
+		scanf_s("%s",string2,10);
+		strcat(string1, string2); printf("%s", string1);
 		break;
-	case 4:printf("enter string2\n"); scanf_s("%s", s2);
-		res = strcmp(s, s2);
-		if (res == 0)
+	case 4:printf("Enter the second string for comparing:\n");
+		scanf_s("%s",string2,50);
+		result = strcmp(string1, string2);
+		if (result == 0)
 			printf("equal");
-		else if (res == 1)
-			printf("%s is greater than %s", s, s2);
-		else if (res == -1)
-			printf("%s is less than %s", s, s2);
+		else if (result == 1)
+			printf("%s is greater than %s", string1, string2);
+		else if (result == -1)
+			printf("%s is less than %s", string1, string2);
 		break;
 	}
 	return 0;
