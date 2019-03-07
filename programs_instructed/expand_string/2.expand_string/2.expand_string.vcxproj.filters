@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Program13.c">
+    <ClCompile Include="Expand_string.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
